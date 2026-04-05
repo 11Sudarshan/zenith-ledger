@@ -47,7 +47,7 @@ import { ThemeService } from '../../core/services/theme.service';
     </div>
   `,
   styles: [`
-    .page-container { padding: var(--space-xl); max-width: 800px; margin: 0 auto; } /* Narrower for settings */
+    .page-container { padding: var(--space-xl); max-width: 800px; margin: 0 auto; }  
     .page-header { margin-bottom: var(--space-xl); }
     .page-title { font-size: 1.875rem; color: var(--text-main); margin-bottom: var(--space-xs); }
     .text-muted { color: var(--text-muted); }
@@ -68,7 +68,7 @@ import { ThemeService } from '../../core/services/theme.service';
     .btn-danger { background-color: var(--expense-bg); color: var(--expense-text); border: 1px solid var(--expense-text); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); font-weight: 500; cursor: pointer; transition: all 0.2s; }
     .btn-danger:hover { background-color: var(--expense-text); color: white; }
     
-    /* Toggle Switch (Reused from Sidebar) */
+     
     .switch { position: relative; display: inline-block; width: 40px; height: 24px; }
     .switch input { opacity: 0; width: 0; height: 0; }
     .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border-subtle); transition: .4s; }
@@ -86,7 +86,7 @@ export class SettingsComponent {
     if (confirm("Are you sure? This will wipe all transactions and restore the mock data on refresh.")) {
       localStorage.removeItem('zenith_transactions');
       localStorage.removeItem('zenith_role');
-      window.location.reload(); // Refresh to restore mock data state
+      window.location.reload();  
     }
   }
 }

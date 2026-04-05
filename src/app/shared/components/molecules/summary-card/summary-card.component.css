@@ -10,7 +10,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Subtle hover effect for that premium feel */
+ 
 .summary-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
@@ -24,7 +24,7 @@
   letter-spacing: 0.05em;
 }
 
-/* Icon box styling */
+ 
 .icon-container {
   background-color: var(--primary-light);
   color: var(--primary-accent);
@@ -55,7 +55,7 @@
   border-radius: var(--radius-full);
 }
 
-/* Dynamic classes applied by Angular */
+ 
 .positive .trend-badge {
   background-color: var(--success-bg);
   color: var(--success-text);

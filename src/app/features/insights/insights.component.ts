@@ -54,7 +54,7 @@ import { FinanceService } from '../../core/services/finance.service';
     .insight-card h3 { color: var(--text-main); font-size: 1.25rem; }
     .insight-text { color: var(--text-muted); line-height: 1.6; }
     
-    /* Health Score Specifics */
+     
     .score-display { display: flex; align-items: baseline; gap: var(--space-sm); }
     .score-number { font-size: 3rem; font-weight: 700; color: var(--text-main); line-height: 1; }
     .percent { font-size: 1.5rem; color: var(--text-muted); }
@@ -70,7 +70,7 @@ import { FinanceService } from '../../core/services/finance.service';
 export class InsightsComponent {
   financeService = inject(FinanceService);
 
-  // Compute the highest spending category dynamically from real data!
+   
   highestCategory = computed(() => {
     const txs = this.financeService.transactions().filter(t => t.type === 'Debit');
     if (txs.length === 0) return 'Nothing';

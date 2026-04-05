@@ -1,4 +1,4 @@
-/* Update the main sidebar class to include a transition */
+ 
 .sidebar {
   width: 260px;
   height: 100vh;
@@ -6,11 +6,11 @@
   border-right: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth snap */
-  overflow: hidden; /* Prevents text overflow during animation */
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);  
+  overflow: hidden;  
 }
 
-/* The magic collapsed state */
+ 
 .sidebar.collapsed {
   width: 80px;
 }
@@ -21,19 +21,19 @@
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Aligns items to the left when open */
+  justify-content: flex-start;  
   gap: var(--space-sm);
-  cursor: pointer; /* Makes it clear this is a button now */
+  cursor: pointer;  
   transition: background-color 0.2s;
-  user-select: none; /* Prevents text highlighting when clicking fast */
+  user-select: none;  
 }
 
-/* Subtle hover effect so the user knows it's clickable */
+ 
 .brand:hover {
   background-color: var(--bg-surface-hover);
 }
 
-/* Center the logo perfectly when collapsed */
+ 
 .sidebar.collapsed .brand {
   justify-content: center;
   padding: 0;
@@ -86,7 +86,7 @@
   white-space: nowrap;
 }
 
-/* Center icons when collapsed */
+ 
 .sidebar.collapsed .nav-item {
   justify-content: center;
   padding: var(--space-sm);
@@ -111,7 +111,7 @@
   padding: var(--space-md);
 }
 
-/* --- Role Switcher Styles (Keep your existing ones) --- */
+ 
 .role-switcher-card {
   background-color: var(--bg-main);
   border: 1px solid var(--border-subtle);
@@ -139,7 +139,7 @@
   color: var(--text-main);
 }
 
-/* Mini Role Indicator for collapsed state */
+ 
 .mini-role {
   width: 40px;
   height: 40px;
@@ -162,7 +162,7 @@
   border-color: var(--pending-text);
 }
 
-/* Custom CSS Toggle Switch (Keep your existing ones) */
+ 
 .switch { position: relative; display: inline-block; width: 40px; height: 24px; }
 .switch input { opacity: 0; width: 0; height: 0; }
 .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--text-muted); transition: .4s; }

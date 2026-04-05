@@ -21,7 +21,6 @@
   color: var(--text-muted);
 }
 
-/* Role Toggle Button (Testing Utility) */
 .role-toggle-btn {
   background-color: var(--bg-surface);
   border: 1px solid var(--primary-accent);
@@ -39,18 +38,16 @@
   background-color: var(--primary-light);
 }
 
-/* Responsive CSS Grid for the Summary Cards */
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-lg);
 }
 
-/* Placeholder styles for where the charts will go */
-/* Replace .charts-placeholder with this */
+
 .charts-section {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* Area chart takes 2/3, Donut takes 1/3 */
+  grid-template-columns: 2fr 1fr; 
   gap: var(--space-lg);
   width: 100%;
 }
@@ -83,12 +80,12 @@ app-area-chart, app-donut-chart {
 
 @media (max-width: 768px) {
   .charts-section {
-    grid-template-columns: 1fr; /* Stack on mobile */
+    grid-template-columns: 1fr; 
   }
 }
 @media (max-width: 900px) {
   .charts-section {
-    grid-template-columns: 1fr; /* Stacks the charts vertically */
+    grid-template-columns: 1fr; 
   }
 }
 
@@ -103,7 +100,7 @@ app-area-chart, app-donut-chart {
   color: var(--text-muted);
 }
 
-/* Transactions Section */
+
 .transactions-section {
   display: flex;
   flex-direction: column;
@@ -130,7 +127,7 @@ app-area-chart, app-donut-chart {
   opacity: 0.9;
 }
 
-/* Simple Loading Spinner */
+
 .loading-state {
   flex-direction: column;
   gap: var(--space-md);
@@ -152,10 +149,10 @@ app-area-chart, app-donut-chart {
   100% { transform: rotate(360deg); }
 }
 
-/* Mobile Responsiveness */
+
 @media (max-width: 768px) {
   .charts-placeholder {
-    grid-template-columns: 1fr; /* Stack charts on mobile */
+    grid-template-columns: 1fr; 
   }
   .dashboard-header {
     flex-direction: column;
@@ -164,7 +161,7 @@ app-area-chart, app-donut-chart {
   }
 }
 
-/* --- Filter Bar Styles --- */
+ 
 .filter-bar {
   background-color: var(--bg-surface);
   padding: var(--space-md);
@@ -224,7 +221,7 @@ app-area-chart, app-donut-chart {
   border-color: var(--primary-accent);
 }
 
-/* Mobile Responsiveness for Filters */
+ 
 @media (max-width: 768px) {
   .filter-bar {
     flex-direction: column;
@@ -276,14 +273,14 @@ app-area-chart, app-donut-chart {
   gap: 2px;
   z-index: 100;
   
-  /* Hidden by default */
+   
   visibility: hidden;
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.2s ease;
 }
 
-/* Reveal on Hover */
+ 
 .export-dropdown:hover .dropdown-menu {
   visibility: visible;
   opacity: 1;
@@ -314,7 +311,7 @@ app-area-chart, app-donut-chart {
   font-size: 1.125rem;
 }
 
-/* Update btn-secondary to accommodate the dropdown arrow */
+
 .btn-secondary {
   gap: 4px;
 }

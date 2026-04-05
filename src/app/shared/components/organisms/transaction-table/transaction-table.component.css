@@ -3,7 +3,7 @@
   background-color: var(--bg-surface);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-subtle);
-  overflow-x: auto; /* Ensures it works on mobile screens */
+  overflow-x: auto;  
   box-shadow: var(--shadow-sm);
 }
 
@@ -13,7 +13,7 @@
   text-align: left;
 }
 
-/* Header Styling */
+ 
 th {
   padding: var(--space-md);
   font-size: 0.75rem;
@@ -24,7 +24,7 @@ th {
   letter-spacing: 0.05em;
 }
 
-/* Row Styling */
+ 
 td {
   padding: var(--space-md);
   font-size: 0.875rem;
@@ -41,7 +41,7 @@ td {
   background-color: var(--bg-surface-hover);
 }
 
-/* Typography & Cells */
+ 
 .entity-name {
   font-weight: 600;
 }
@@ -67,7 +67,7 @@ td {
   color: var(--success-text);
 }
 
-/* Actions */
+ 
 .actions-col {
   text-align: right;
   min-width: 80px;
@@ -89,14 +89,14 @@ td {
 
 .action-btn:hover {
   color: var(--primary-accent);
-  transform: scale(1.1); /* Tiny pop effect */
+  transform: scale(1.1);  
 }
 
 .action-btn.delete:hover {
   color: var(--expense-text);
 }
 
-/* Empty State Styling */
+ 
 .empty-state {
   padding: var(--space-xl) var(--space-md);
   text-align: center;

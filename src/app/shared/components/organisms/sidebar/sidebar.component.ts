@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  // Inject the global state to access the current role and toggle function
+   
   financeService = inject(FinanceService);
   isCollapsed = signal<boolean>(false);
   

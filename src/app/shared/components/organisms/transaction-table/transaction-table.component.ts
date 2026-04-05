@@ -11,10 +11,10 @@ import { StatusBadgeComponent } from '../../atoms/status-badge/status-badge.comp
   styleUrls: ['./transaction-table.component.css']
 })
 export class TransactionTableComponent {
-  // Required input: The table must receive an array of transactions
+   
   transactions = input.required<Transaction[]>();
   
-  // Optional input: We can pass the current role to disable actions for 'Viewer'
+   
   userRole = input<'Admin' | 'Viewer'>('Admin');
   deleteTx = output<string>();
   editTx = output<Transaction>();

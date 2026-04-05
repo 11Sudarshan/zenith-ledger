@@ -14,10 +14,10 @@ import { TransactionStatus } from '../../../../core/models/transaction.model';
   styleUrls: ['./status-badge.component.css']
 })
 export class StatusBadgeComponent {
-  // Using modern Signal inputs
+   
   status = input.required<TransactionStatus>();
 
-  // Computed signal to dynamically assign CSS classes
+   
   statusClass = computed(() => {
     const currentStatus = this.status().toLowerCase();
     return `badge-${currentStatus}`;

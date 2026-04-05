@@ -29,10 +29,10 @@ export class DonutChartComponent {
     datasets: [
       {
         data: [4500, 2800, 900],
-        // Using colors from our palette: Blue, Teal, Green
+         
         backgroundColor: ['#415F91', '#48BB78', '#38B2AC'], 
         hoverOffset: 4,
-        borderWidth: 0 // Removes harsh borders
+        borderWidth: 0  
       }
     ]
   };
@@ -40,7 +40,7 @@ export class DonutChartComponent {
   public doughnutChartOptions: ChartOptions<'doughnut'> = {
     responsive: true,
     maintainAspectRatio: false,
-    cutout: '75%', // Makes it a thin, elegant donut
+    cutout: '75%',  
     plugins: {
       legend: { position: 'bottom' }
     }

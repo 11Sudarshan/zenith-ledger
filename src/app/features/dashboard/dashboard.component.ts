@@ -22,28 +22,28 @@ export class DashboardComponent {
   isModalOpen = signal<boolean>(false);
   transactionToEdit = signal<Transaction | null>(null);
 
-  // Triggered by "Add Transaction" button
+   
   openAddModal() {
     this.transactionToEdit.set(null);
     this.isModalOpen.set(true);
   }
 
-  // Triggered by table "Edit" button
+   
   openEditModal(tx: Transaction) {
     this.transactionToEdit.set(tx);
     this.isModalOpen.set(true);
   }
 
-  // Handle the form submission
+   
   onSaveTransaction(txData: any) {
     if (txData.id) {
-      this.financeService.updateTransaction(txData); // It's an edit
+      this.financeService.updateTransaction(txData);  
     } else {
-      this.financeService.addTransaction(txData);    // It's a new entry
+      this.financeService.addTransaction(txData);     
     }
   }
 
-  // Event Handlers for Filters
+   
   onSearch(event: Event) {
     const input = event.target as HTMLInputElement;
     this.financeService.updateSearch(input.value);
@@ -63,7 +63,7 @@ export class DashboardComponent {
     return this.financeService.filteredTransactions();
   }
 
-  // Updated Export Logic
+   
   exportData(format: 'csv' | 'json') {
     const data = this.getExportData();
     if (data.length === 0) return;
@@ -80,7 +80,7 @@ export class DashboardComponent {
       blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
       extension = 'csv';
     } else {
-      // JSON Export
+       
       const jsonString = JSON.stringify(data, null, 2);
       blob = new Blob([jsonString], { type: 'application/json' });
       extension = 'json';

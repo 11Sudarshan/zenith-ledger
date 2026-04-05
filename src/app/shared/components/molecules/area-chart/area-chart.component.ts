@@ -5,7 +5,7 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
 @Component({
   selector: 'app-area-chart',
   standalone: true,
-  imports: [BaseChartDirective], // Crucial for ng2-charts
+  imports: [BaseChartDirective],  
   template: `
     <div class="chart-container">
       <canvas baseChart 
@@ -24,7 +24,7 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
   `]
 })
 export class AreaChartComponent {
-  // Mock Data for the last 6 months
+   
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [
@@ -32,9 +32,9 @@ export class AreaChartComponent {
         data: [110000, 115000, 112000, 118000, 121000, 124500],
         label: 'Net Worth',
         fill: true,
-        tension: 0.4, // Makes the line curved and smooth
-        borderColor: '#415F91', // Our primary-accent color
-        backgroundColor: 'rgba(65, 95, 145, 0.2)', // Semi-transparent fill
+        tension: 0.4,  
+        borderColor: '#415F91',  
+        backgroundColor: 'rgba(65, 95, 145, 0.2)',  
         pointBackgroundColor: '#415F91',
       }
     ]
@@ -44,7 +44,7 @@ export class AreaChartComponent {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: { display: false }, // Hide legend for cleaner look
+      legend: { display: false },  
       tooltip: {
         mode: 'index',
         intersect: false,
@@ -56,7 +56,7 @@ export class AreaChartComponent {
         grid: { color: 'rgba(0,0,0,0.05)' }
       },
       x: { 
-        grid: { display: false } // Cleaner x-axis
+        grid: { display: false }  
       }
     }
   };

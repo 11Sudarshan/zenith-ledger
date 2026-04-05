@@ -4,12 +4,12 @@ export type Role = 'Admin' | 'Viewer';
 
 export interface Transaction {
   id: string;
-  entity: string;       // e.g., "Apple Store", "Stripe Payout"
-  date: string;         // ISO string or formatted date
-  category: string;     // e.g., "Tech", "Lifestyle", "Income"
-  amount: number;       // Use negative for debit, positive for credit
+  entity: string;       
+  date: string;         
+  category: string;    
+  amount: number;       
   type: TransactionType;
-  method: string;       // e.g., "Debit Card", "Bank Transfer"
+  method: string;       
   status: TransactionStatus;
 }
 

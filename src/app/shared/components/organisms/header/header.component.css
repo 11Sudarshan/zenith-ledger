@@ -50,7 +50,7 @@
   position: relative;
   color: var(--text-muted);
   transition: color 0.2s ease;
-  display: flex; /* Helps center the icon perfectly */
+  display: flex;  
   align-items: center;
 }
 .icon-btn:hover {
@@ -62,7 +62,7 @@
   right: 0;
   width: 8px;
   height: 8px;
-  background-color: var(--expense-text); /* Using red for the dot */
+  background-color: var(--expense-text);  
   border-radius: 50%;
   border: 2px solid var(--bg-surface);
 }

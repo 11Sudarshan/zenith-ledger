@@ -13,14 +13,14 @@ import { Transaction } from '../../../../core/models/transaction.model';
 export class TransactionModalComponent {
   private fb = inject(FormBuilder);
 
-  // Inputs & Outputs
+   
   isOpen = input.required<boolean>();
   transactionToEdit = input<Transaction | null>(null);
   
   closeModal = output<void>();
-  saveTransaction = output<any>(); // Emits the form data
+  saveTransaction = output<any>();  
 
-  // Define the form structure
+   
   txForm = this.fb.group({
     entity: ['', Validators.required],
     amount: [0, Validators.required],
@@ -32,13 +32,13 @@ export class TransactionModalComponent {
   });
 
   constructor() {
-    // Watch for changes to the input transaction. 
-    // If we are editing, patch the form. If adding, reset it.
+     
+     
     effect(() => {
       const tx = this.transactionToEdit();
       if (tx) {
-        // We use Math.abs to show positive numbers in the input box, 
-        // we'll handle making it negative/positive upon saving.
+         
+         
         this.txForm.patchValue({ ...tx, amount: Math.abs(tx.amount) });
       } else {
         this.txForm.reset({ 
@@ -52,13 +52,13 @@ export class TransactionModalComponent {
   onSubmit() {
     if (this.txForm.valid) {
       const formValue = this.txForm.value;
-      // Ensure debits are negative amounts
+       
       const finalAmount = formValue.type === 'Debit' ? -Math.abs(formValue.amount!) : Math.abs(formValue.amount!);
       
       this.saveTransaction.emit({
         ...formValue,
         amount: finalAmount,
-        id: this.transactionToEdit()?.id // Pass ID if it exists (Edit mode)
+        id: this.transactionToEdit()?.id  
       });
       this.closeModal.emit();
     }

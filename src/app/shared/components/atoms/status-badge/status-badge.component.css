@@ -8,7 +8,7 @@
   letter-spacing: 0.02em;
 }
 
-/* Consuming our global semantic colors */
+ 
 .badge-completed {
   background-color: var(--success-bg);
   color: var(--success-text);

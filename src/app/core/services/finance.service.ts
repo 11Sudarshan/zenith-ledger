@@ -1,4 +1,3 @@
-// src/app/core/services/finance.service.ts
 import { Injectable, signal, computed, effect } from '@angular/core';
 import { Transaction, Role, FinancialSummary } from '../models/transaction.model';
 
@@ -7,17 +6,17 @@ import { Transaction, Role, FinancialSummary } from '../models/transaction.model
 })
 export class FinanceService {
   
-  // --- STATE (Signals) ---
+   
   readonly transactions = signal<Transaction[]>([]);
   readonly currentRole = signal<Role>('Admin');
   readonly isLoading = signal<boolean>(true);
 
-  // NEW: Filter States
+   
   readonly searchQuery = signal<string>('');
   readonly filterCategory = signal<string>('All');
   readonly filterType = signal<string>('All');
 
-  // --- COMPUTED STATE ---
+   
   readonly financialSummary = computed<FinancialSummary>(() => {
     const txs = this.transactions();
     const cashIn = txs.filter(t => t.amount > 0).reduce((sum, t) => sum + t.amount, 0);
@@ -32,7 +31,7 @@ export class FinanceService {
     };
   });
 
-  // NEW: The Reactively Filtered List
+   
   readonly filteredTransactions = computed<Transaction[]>(() => {
     const txs = this.transactions();
     const search = this.searchQuery().toLowerCase();
@@ -50,7 +49,7 @@ export class FinanceService {
   });
 
 constructor() {
-    // 🪄 MAGIC DATA PERSISTENCE: Automatically saves to localStorage when transactions change
+   
     effect(() => {
       const currentTxs = this.transactions();
       if (currentTxs.length > 0) {
@@ -58,7 +57,7 @@ constructor() {
       }
     });
 
-    // Automatically save role preference
+   
     effect(() => {
       localStorage.setItem('zenith_role', this.currentRole());
     });
@@ -66,20 +65,20 @@ constructor() {
     this.loadInitialData();
   }
 
-  // --- METHODS ---
+   
   toggleRole() {
     this.currentRole.update(role => role === 'Admin' ? 'Viewer' : 'Admin');
   }
 
   deleteTransaction(id: string) {
-    // Filters out the deleted ID and updates the signal
+   
     this.transactions.update(txs => txs.filter(t => t.id !== id));
   }
 
 addTransaction(newTx: Omit<Transaction, 'id'>) {
     const transaction: Transaction = {
       ...newTx,
-      id: Math.random().toString(36).substring(2, 9) // Generate a random ID
+      id: Math.random().toString(36).substring(2, 9) 
     };
     this.transactions.update(txs => [transaction, ...txs]);
   }
@@ -90,7 +89,7 @@ addTransaction(newTx: Omit<Transaction, 'id'>) {
     );
   }
 
-  // Filter updates remain the same...
+ 
   updateSearch(query: string) { this.searchQuery.set(query); }
   updateCategory(category: string) { this.filterCategory.set(category); }
   updateType(type: string) { this.filterType.set(type); }
@@ -98,7 +97,7 @@ addTransaction(newTx: Omit<Transaction, 'id'>) {
 private loadInitialData() {
     this.isLoading.set(true);
     
-    // Load from Local Storage first!
+     
     const savedRole = localStorage.getItem('zenith_role') as Role;
     if (savedRole) this.currentRole.set(savedRole);
 
@@ -106,10 +105,10 @@ private loadInitialData() {
       const savedData = localStorage.getItem('zenith_transactions');
       
       if (savedData && savedData !== '[]') {
-        // Parse saved data
+         
         this.transactions.set(JSON.parse(savedData));
       } else {
-        // Fallback to Mock Data if first time user
+         
         const mockData: Transaction[] = [
           { id: '1', entity: 'Apple Store', date: '2024-10-24', category: 'Tech', amount: -1299.00, type: 'Debit', method: 'Debit Card', status: 'Completed' },
           { id: '2', entity: 'Stripe Payout', date: '2024-10-23', category: 'Income', amount: 4500.00, type: 'Credit', method: 'Bank Transfer', status: 'Completed' },
