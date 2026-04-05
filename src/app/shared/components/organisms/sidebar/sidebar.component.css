@@ -1,0 +1,173 @@
+/* Update the main sidebar class to include a transition */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth snap */
+  overflow: hidden; /* Prevents text overflow during animation */
+}
+
+/* The magic collapsed state */
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.brand {
+  height: 72px;
+  padding: 0 var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Aligns items to the left when open */
+  gap: var(--space-sm);
+  cursor: pointer; /* Makes it clear this is a button now */
+  transition: background-color 0.2s;
+  user-select: none; /* Prevents text highlighting when clicking fast */
+}
+
+/* Subtle hover effect so the user knows it's clickable */
+.brand:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+/* Center the logo perfectly when collapsed */
+.sidebar.collapsed .brand {
+  justify-content: center;
+  padding: 0;
+}
+
+.logo-icon {
+  color: var(--primary-accent);
+  font-size: 1.5rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.toggle-btn {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.toggle-btn:hover {
+  color: var(--text-main);
+}
+
+.nav-menu {
+  flex: 1;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  transition: background-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+/* Center icons when collapsed */
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: var(--space-sm);
+}
+
+.sidebar.collapsed .nav-icon {
+  margin-right: 0;
+  font-size: 1.25rem;
+}
+
+.nav-item:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-main);
+}
+
+.nav-item.active {
+  background-color: var(--primary-light);
+  color: var(--primary-accent);
+}
+
+.sidebar-footer {
+  padding: var(--space-md);
+}
+
+/* --- Role Switcher Styles (Keep your existing ones) --- */
+.role-switcher-card {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.3s;
+  white-space: nowrap;
+}
+
+.role-switcher-card.viewer-mode {
+  border-color: var(--pending-text);
+}
+
+.role-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+}
+
+.role-info strong {
+  font-size: 0.875rem;
+  color: var(--text-main);
+}
+
+/* Mini Role Indicator for collapsed state */
+.mini-role {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  background-color: var(--primary-light);
+  color: var(--primary-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--primary-accent);
+  transition: all 0.2s;
+}
+
+.mini-role.viewer-mode {
+  background-color: var(--pending-bg);
+  color: var(--pending-text);
+  border-color: var(--pending-text);
+}
+
+/* Custom CSS Toggle Switch (Keep your existing ones) */
+.switch { position: relative; display: inline-block; width: 40px; height: 24px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--text-muted); transition: .4s; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; }
+input:checked + .slider { background-color: #415F91; }
+input:checked + .slider:before { transform: translateX(16px); }
+.slider.round { border-radius: 24px; }
+.slider.round:before { border-radius: 50%; }

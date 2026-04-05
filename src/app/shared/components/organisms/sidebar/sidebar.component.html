@@ -1,0 +1,31 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed()">
+  <div
+    class="brand flex-center"
+    (click)="toggleSidebar()"
+    [title]="isCollapsed() ? 'Expand Sidebar' : 'Collapse Sidebar'"
+  >
+    <div class="logo-icon">▲</div>
+
+    @if (!isCollapsed()) {
+      <span class="brand-name">Zenith Ledger</span>
+    }
+  </div>
+
+  <nav class="nav-menu">
+    @for (item of navItems; track item.name) {
+      <a
+        href="#"
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        class="nav-item"
+        [title]="item.name"
+      >
+        <span class="nav-icon material-symbols-rounded">{{ item.icon }}</span>
+
+        @if (!isCollapsed()) {
+          <span class="nav-text">{{ item.name }}</span>
+        }
+      </a>
+    }
+  </nav>
+</aside>

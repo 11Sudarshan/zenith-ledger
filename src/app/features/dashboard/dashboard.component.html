@@ -1,0 +1,134 @@
+<div class="dashboard-container">
+  <header class="dashboard-header flex-between">
+    <div>
+      <h1 class="page-title">Financial Overview</h1>
+      <p class="text-muted">Welcome back, Sudarshan. Here is your latest data.</p>
+    </div>
+
+    <button class="role-toggle-btn" (click)="financeService.toggleRole()">
+      Viewing as: <strong>{{ financeService.currentRole() }}</strong>
+      <span class="swap-icon">⇄</span>
+    </button>
+  </header>
+
+  @if (financeService.isLoading()) {
+    <div class="loading-state flex-center">
+      <div class="spinner"></div>
+      <p>Loading your financial data...</p>
+    </div>
+  } @else {
+    <section class="summary-grid">
+      <app-summary-card
+        title="Current Liquidity"
+        iconClass="account_balance_wallet"
+        [amount]="financeService.financialSummary().totalLiquidity"
+        [trend]="financeService.financialSummary().liquidityChangePercent"
+      >
+      </app-summary-card>
+
+      <app-summary-card
+        title="Monthly Cash In"
+        iconClass="trending_up"
+        [amount]="financeService.financialSummary().monthlyCashIn"
+        [trend]="4.2"
+      >
+      </app-summary-card>
+
+      <app-summary-card
+        title="Monthly Cash Out"
+        iconClass="trending_down"
+        [amount]="financeService.financialSummary().monthlyCashOut"
+        [trend]="-2.1"
+      >
+      </app-summary-card>
+    </section>
+
+    <section class="charts-section">
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Wealth Accumulation</h3>
+          <p class="text-muted">Net worth trajectory over the last 6 months</p>
+        </div>
+        <app-area-chart></app-area-chart>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Spending Distribution</h3>
+          <p class="text-muted">Breakdown by major categories</p>
+        </div>
+        <app-donut-chart></app-donut-chart>
+      </div>
+    </section>
+
+    <section class="transactions-section">
+      <div class="section-header flex-between">
+        <h2>Recent Transactions</h2>
+<div class="action-buttons" style="display: flex; gap: 12px;">
+    
+    <div class="export-dropdown">
+      <button class="btn-secondary">
+        <span class="material-symbols-rounded">download</span> 
+        Export
+        <span class="material-symbols-rounded">arrow_drop_down</span>
+      </button>
+      
+      <div class="dropdown-menu">
+        <button (click)="exportData('csv')">
+          <span class="material-symbols-rounded">table_chart</span> CSV Spreadsheet
+        </button>
+        <button (click)="exportData('json')">
+          <span class="material-symbols-rounded">data_object</span> JSON File
+        </button>
+      </div>
+    </div>
+
+    @if (financeService.currentRole() === 'Admin') {
+      <button class="btn-primary" (click)="openAddModal()">+ Add Transaction</button>
+    }
+  </div>
+      </div>
+
+      <div class="filter-bar flex-between">
+        <div class="search-box">
+          <span class="icon material-symbols-rounded">search</span>
+          <input
+            type="text"
+            placeholder="Search by entity or category..."
+            [value]="financeService.searchQuery()"
+            (input)="onSearch($event)"
+          />
+        </div>
+
+        <div class="filter-dropdowns flex-center">
+          <select (change)="onTypeChange($event)" class="select-input">
+            <option value="All">All Types</option>
+            <option value="Credit">Credits Only</option>
+            <option value="Debit">Debits Only</option>
+          </select>
+
+          <select (change)="onCategoryChange($event)" class="select-input">
+            <option value="All">All Categories</option>
+            <option value="Income">Income</option>
+            <option value="Tech">Tech</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Utilities">Utilities</option>
+          </select>
+        </div>
+      </div>
+
+<app-transaction-table 
+  [transactions]="financeService.filteredTransactions()"
+  [userRole]="financeService.currentRole()"
+  (deleteTx)="financeService.deleteTransaction($event)"
+  (editTx)="openEditModal($event)">
+</app-transaction-table>
+    </section>
+  }
+  <app-transaction-modal
+  [isOpen]="isModalOpen()"
+  [transactionToEdit]="transactionToEdit()"
+  (closeModal)="isModalOpen.set(false)"
+  (saveTransaction)="onSaveTransaction($event)">
+</app-transaction-modal>
+</div>

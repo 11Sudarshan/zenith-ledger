@@ -1,0 +1,75 @@
+@if (isOpen()) {
+  <div class="modal-backdrop flex-center" (click)="closeModal.emit()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      
+      <header class="modal-header flex-between">
+        <h2>{{ transactionToEdit() ? 'Edit Transaction' : 'Add New Transaction' }}</h2>
+        <button class="close-btn" (click)="closeModal.emit()">✕</button>
+      </header>
+
+      <form [formGroup]="txForm" (ngSubmit)="onSubmit()">
+        <div class="form-grid">
+          
+          <div class="form-group full-width">
+            <label>Entity / Name</label>
+            <input type="text" formControlName="entity" placeholder="e.g. Apple Store" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label>Amount (₹)</label>
+            <input type="number" formControlName="amount" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" formControlName="date" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label>Type</label>
+            <select formControlName="type" class="form-input">
+              <option value="Debit">Debit (Expense)</option>
+              <option value="Credit">Credit (Income)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Category</label>
+            <select formControlName="category" class="form-input">
+              <option value="Tech">Tech</option>
+              <option value="Lifestyle">Lifestyle</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Income">Income</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Method</label>
+            <select formControlName="method" class="form-input">
+              <option value="Credit Card">Credit Card</option>
+              <option value="Debit Card">Debit Card</option>
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="Auto-Pay">Auto-Pay</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Status</label>
+            <select formControlName="status" class="form-input">
+              <option value="Completed">Completed</option>
+              <option value="Pending">Pending</option>
+              <option value="Failed">Failed</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" (click)="closeModal.emit()">Cancel</button>
+          <button type="submit" class="btn-primary" [disabled]="!txForm.valid">Save Transaction</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+}

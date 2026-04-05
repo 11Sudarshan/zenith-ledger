@@ -88,5 +88,14 @@
         }
       }
     }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "css",
+      "type": "component"
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }

@@ -1,0 +1,320 @@
+.dashboard-container {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: var(--space-sm);
+}
+
+.page-title {
+  font-size: 1.875rem;
+  color: var(--text-main);
+  margin-bottom: var(--space-xs);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Role Toggle Button (Testing Utility) */
+.role-toggle-btn {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--primary-accent);
+  color: var(--primary-accent);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: all 0.2s;
+}
+
+.role-toggle-btn:hover {
+  background-color: var(--primary-light);
+}
+
+/* Responsive CSS Grid for the Summary Cards */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* Placeholder styles for where the charts will go */
+/* Replace .charts-placeholder with this */
+.charts-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Area chart takes 2/3, Donut takes 1/3 */
+  gap: var(--space-lg);
+  width: 100%;
+}
+
+.chart-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  min-width: 0; 
+  
+  display: flex;
+  flex-direction: column;
+}
+app-area-chart, app-donut-chart {
+  display: block;
+  width: 100%;
+  flex: 1;
+}
+.chart-header {
+  margin-bottom: var(--space-md);
+}
+
+.chart-header h3 {
+  font-size: 1.125rem;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .charts-section {
+    grid-template-columns: 1fr; /* Stack on mobile */
+  }
+}
+@media (max-width: 900px) {
+  .charts-section {
+    grid-template-columns: 1fr; /* Stacks the charts vertically */
+  }
+}
+
+.chart-box {
+  background-color: var(--bg-surface);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-lg);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+/* Transactions Section */
+.transactions-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.section-header h2 {
+  font-size: 1.25rem;
+  color: var(--text-main);
+}
+
+.btn-primary {
+  background-color: #415F91;
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Simple Loading Spinner */
+.loading-state {
+  flex-direction: column;
+  gap: var(--space-md);
+  height: 50vh;
+  color: var(--text-muted);
+}
+
+.spinner {
+  border: 4px solid var(--border-subtle);
+  border-top: 4px solid var(--primary-accent);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .charts-placeholder {
+    grid-template-columns: 1fr; /* Stack charts on mobile */
+  }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+}
+
+/* --- Filter Bar Styles --- */
+.filter-bar {
+  background-color: var(--bg-surface);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-sm);
+  gap: var(--space-md);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-md);
+  flex: 1;
+  max-width: 400px;
+  transition: border-color 0.2s;
+}
+
+.search-box:focus-within {
+  border-color: var(--primary-accent);
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  padding: var(--space-sm);
+  width: 100%;
+  color: var(--text-main);
+  outline: none;
+}
+
+.search-box .icon {
+  color: var(--text-muted);
+}
+
+.filter-dropdowns {
+  gap: var(--space-sm);
+}
+
+.select-input {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: border-color 0.2s;
+}
+
+.select-input:hover, .select-input:focus {
+  border-color: var(--primary-accent);
+}
+
+/* Mobile Responsiveness for Filters */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-box {
+    max-width: 100%;
+  }
+  .filter-dropdowns {
+    flex-direction: column;
+  }
+}
+
+.btn-secondary {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+.export-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  min-width: 180px;
+  padding: var(--space-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 100;
+  
+  /* Hidden by default */
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+}
+
+/* Reveal on Hover */
+.export-dropdown:hover .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(4px);
+}
+
+.dropdown-menu button {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.dropdown-menu button:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--primary-accent);
+}
+
+.dropdown-menu button .material-symbols-rounded {
+  font-size: 1.125rem;
+}
+
+/* Update btn-secondary to accommodate the dropdown arrow */
+.btn-secondary {
+  gap: 4px;
+}

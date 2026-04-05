@@ -1,0 +1,118 @@
+.table-container {
+  width: 100%;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  overflow-x: auto; /* Ensures it works on mobile screens */
+  box-shadow: var(--shadow-sm);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/* Header Styling */
+th {
+  padding: var(--space-md);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-subtle);
+  letter-spacing: 0.05em;
+}
+
+/* Row Styling */
+td {
+  padding: var(--space-md);
+  font-size: 0.875rem;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.table-row {
+  transition: background-color 0.15s ease;
+}
+
+.table-row:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+/* Typography & Cells */
+.entity-name {
+  font-weight: 600;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.category-pill {
+  background-color: var(--bg-main);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--border-subtle);
+}
+
+.amount-cell {
+  font-weight: 600;
+}
+
+.amount-cell.positive {
+  color: var(--success-text);
+}
+
+/* Actions */
+.actions-col {
+  text-align: right;
+  min-width: 80px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 1.1rem;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.action-btn:hover {
+  color: var(--primary-accent);
+  transform: scale(1.1); /* Tiny pop effect */
+}
+
+.action-btn.delete:hover {
+  color: var(--expense-text);
+}
+
+/* Empty State Styling */
+.empty-state {
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: var(--space-sm);
+  opacity: 0.5;
+
+  color: var(--text-muted); 
+}
+
+.empty-content h3 {
+  color: var(--text-main);
+  margin-bottom: var(--space-xs);
+}

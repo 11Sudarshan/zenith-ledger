@@ -1,1 +1,105 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* --- Core Colors (Light Mode Default) --- */
+  --bg-main: #F9F9FF;
+  --bg-surface: #FFFFFF;
+  --bg-surface-hover: #F3F3FA;
+  
+  --primary-accent: #415F91;
+  --primary-light: #D6E3FF;
+  
+  --text-main: #191C20;
+  --text-muted: #44474E;
+  
+  --border-subtle: #E0E2EC;
+
+  /* --- Semantic Colors --- */
+  --success-bg: #E6F4EA;
+  --success-text: #137333;
+  --expense-bg: #FCE8E6;
+  --expense-text: #C5221F;
+  --pending-bg: #FEF7E0;
+  --pending-text: #B06000;
+
+  /* --- Spacing System (Margins & Paddings) --- */
+  --space-xs: 0.25rem;  /* 4px */
+  --space-sm: 0.5rem;   /* 8px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2rem;     /* 32px */
+
+  /* --- Border Radius --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;    /* For glassmorphic cards */
+  --radius-full: 9999px;/* For pills/badges */
+
+  /* --- Shadows (Glassmorphism & Elevation) --- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+[data-theme="dark"] {
+  /* --- Core Colors (Dark Mode Override) --- */
+  --bg-main: #111318;
+  --bg-surface: #1D2024;
+  --bg-surface-hover: #282A2F;
+  
+  --primary-accent: #AAC7FF;
+  --primary-light: #284777;
+  
+  --text-main: #E2E2E9;
+  --text-muted: #C4C6D0;
+  
+  --border-subtle: #44474E;
+
+  /* --- Semantic Colors (Dark Mode Override) --- */
+  --success-bg: #0F5223;       /* Darker green background */
+  --success-text: #81C995;     /* Lighter green text */
+  --expense-bg: #690005;       /* Darker red background */
+  --expense-text: #FFB4AB;     /* Lighter red text */
+  --pending-bg: #5D3F00;       /* Darker amber background */
+  --pending-text: #FDE293;     /* Lighter amber text */
+
+  /* Shadows adjust slightly for dark mode to look natural */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Base Resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utility Classes for quick alignment */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,64 @@
+<div class="table-container">
+  <table class="data-table">
+    
+    <thead>
+      <tr>
+        <th>Entity</th>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Method</th>
+        <th>Amount</th>
+        <th>Status</th>
+        @if (userRole() === 'Admin') {
+          <th class="actions-col">Actions</th>
+        }
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (tx of transactions(); track tx.id) {
+        <tr class="table-row">
+          <td class="entity-cell">
+            <span class="entity-name">{{ tx.entity }}</span>
+          </td>
+          <td class="text-muted">{{ tx.date | date:'MMM dd' }}</td>
+          <td>
+            <span class="category-pill">{{ tx.category }}</span>
+          </td>
+          <td class="text-muted">{{ tx.method }}</td>
+          
+          <td class="amount-cell" [class.positive]="tx.amount > 0">
+            {{ tx.amount > 0 ? '+' : '' }}{{ tx.amount | currency:'INR' }}
+          </td>
+          
+          <td>
+            <app-status-badge [status]="tx.status"></app-status-badge>
+          </td>
+
+          @if (userRole() === 'Admin') {
+            <td class="actions-col">
+              <button class="action-btn edit" title="Edit" (click)="editTx.emit(tx)">
+                <span class="material-symbols-rounded">edit</span>
+              </button>
+              <button class="action-btn delete" title="Delete" (click)="deleteTx.emit(tx.id)">
+                <span class="material-symbols-rounded">delete</span>
+              </button>
+            </td>
+          }
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="7">
+            <div class="empty-state flex-center">
+              <div class="empty-content">
+                <span class="empty-icon material-symbols-rounded" style="font-size: 48px;">search_off</span>
+                <h3>No transactions found</h3>
+                <p>Try adjusting your search or filters.</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

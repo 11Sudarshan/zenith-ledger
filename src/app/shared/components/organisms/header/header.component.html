@@ -1,0 +1,33 @@
+<header class="top-header flex-between">
+<div class="search-container">
+    <span class="search-icon material-symbols-rounded">search</span>
+    <input 
+      #searchInput 
+      type="text" 
+      placeholder="Search transactions, insights..." 
+      class="search-input" 
+      [value]="financeService.searchQuery()"
+      (input)="onGlobalSearch($event)"
+    />
+    <span class="shortcut-hint">{{ shortcutHint() }}</span>
+  </div>
+
+  <div class="user-actions flex-center">
+    
+    <button class="icon-btn theme-btn" (click)="themeService.toggleTheme()" title="Toggle Dark Mode">
+      <span class="material-symbols-rounded">
+        {{ themeService.isDarkMode() ? 'light_mode' : 'dark_mode' }}
+      </span>
+    </button>
+
+    <button class="icon-btn notification-btn">
+<span class="material-symbols-rounded">notifications</span>
+      <span class="notification-dot"></span>
+    </button>
+    
+    <div class="profile-section flex-center">
+      <div class="avatar">S</div>
+      <span class="user-name">Sudarshan S.</span>
+    </div>
+  </div>
+</header>

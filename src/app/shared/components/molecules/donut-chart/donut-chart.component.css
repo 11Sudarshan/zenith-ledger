@@ -1,0 +1,5 @@
+.chart-container {
+  position: relative; /* Mandatory for Chart.js */
+  height: 300px;
+  width: 100%;
+}

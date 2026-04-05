@@ -1,0 +1,21 @@
+<div class="summary-card">
+  <div class="card-header flex-between">
+    <span class="title">{{ title() }}</span>
+    <div class="icon-container flex-center">
+<span class="material-symbols-rounded">{{ iconClass() }}</span>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <h2 class="amount">{{ amount() | currency:'INR':'symbol':'1.2-2' }}</h2>
+  </div>
+
+  @if (trend() !== undefined) {
+    <div class="card-footer" [class.positive]="isPositiveTrend()" [class.negative]="!isPositiveTrend()">
+      <span class="trend-badge">
+        {{ isPositiveTrend() ? '+' : '' }}{{ trend() }}%
+      </span>
+      <span class="trend-text">{{ trendText() }}</span>
+    </div>
+  }
+</div>

@@ -1,0 +1,90 @@
+.top-header {
+  height: 72px;
+  padding: 0 var(--space-xl);
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-md);
+  width: 400px;
+  transition: border-color 0.2s;
+}
+
+.search-container:focus-within {
+  border-color: var(--primary-accent);
+}
+
+.search-input {
+  border: none;
+  background: transparent;
+  padding: var(--space-sm);
+  flex: 1;
+  color: var(--text-main);
+  outline: none;
+}
+
+.shortcut-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background-color: var(--bg-surface);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+}
+
+.user-actions {
+  gap: var(--space-lg);
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  position: relative;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+  display: flex; /* Helps center the icon perfectly */
+  align-items: center;
+}
+.icon-btn:hover {
+  color: var(--text-main);
+}
+.notification-dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--expense-text); /* Using red for the dot */
+  border-radius: 50%;
+  border: 2px solid var(--bg-surface);
+}
+
+.profile-section {
+  gap: var(--space-sm);
+  cursor: pointer;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  color: var(--primary-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 0.875rem;
+}

@@ -1,0 +1,25 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Consuming our global semantic colors */
+.badge-completed {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+}
+
+.badge-pending {
+  background-color: var(--pending-bg);
+  color: var(--pending-text);
+}
+
+.badge-failed {
+  background-color: var(--expense-bg);
+  color: var(--expense-text);
+}
